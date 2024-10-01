@@ -1,0 +1,79 @@
+@font-face {
+    font-family: 'ABC Synt Unlicensed Trial';
+    src: url('ABCSynt-Regular.woff2') format('woff2'),
+        url('ABCSynt-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: 'ABC Synt Unlicensed Trial';
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #FFFFFF;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Container for all posts */
+#content-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+/* Post box styling */
+.post-box {
+    width: 350px; /* Rectangle: more width than height */
+    height: 200px;
+    border: 1px solid #cecece;
+    background-color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center contents vertically */
+    align-items: center; /* Center contents horizontally */
+    padding: 10px;
+    position: relative;
+}
+
+/* Text inside the post */
+.post-box p {
+    font-size: 14px;
+    color: #555;
+    margin: 10px 0; /* Add some margin to separate text from image */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box; /* This creates a box for the text */
+    -webkit-box-orient: vertical; /* Sets the box to vertical orientation */
+    line-clamp: inherit;
+    height: 45px; /* Set a fixed height to ensure the clamp works */
+    text-align: center; /* Center-align text */
+}
+
+/* Image inside the post */
+.post-box img {
+    max-width: 100%; /* Make the image responsive */
+    max-height: 100%; /* Allow image to fit within the box height */
+    object-fit: contain; /* Preserve aspect ratio while ensuring it fits in box */
+    margin: 10px 0; /* Add margin above and below the image */
+    background-color: #fff; /* Set background to white if image doesn't fill the space */
+}
+
+/* Links in the post */
+.post-box a {
+    color: #3498db;
+    text-decoration: none;
+    position: absolute;
+    bottom: 10px;
+}
+
+.post-box a:hover {
+    text-decoration: underline;
+}
