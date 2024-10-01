@@ -21,12 +21,12 @@ h1 {
     color: #333;
 }
 
-/* Container for all posts */
 #content-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 20px;
+
 }
 
 /* Post box styling */
@@ -48,16 +48,26 @@ h1 {
     font-size: 14px;
     color: #555;
     margin: 10px 0; /* Add some margin to separate text from image */
-    overflow: hidden;
+    overflow: auto; /* Allow for scrolling */
     text-overflow: ellipsis;
     display: -webkit-box; /* This creates a box for the text */
     -webkit-box-orient: vertical; /* Sets the box to vertical orientation */
-    line-clamp: inherit;
-    height: 45px; /* Set a fixed height to ensure the clamp works */
     text-align: center; /* Center-align text */
+    padding-left: 30px;
+    padding-right: 30px;
+    position: relative; /* Positioning context for scrollbar */
 }
 
-/* Image inside the post */
+/* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+.post-box p::-webkit-scrollbar {
+    display: none; /* Hides the scrollbar */
+}
+
+/* Hide scrollbar for Firefox */
+.post-box p {
+    scrollbar-width: none; /* Hides the scrollbar for Firefox */
+}
+
 .post-box img {
     max-width: 100%; /* Make the image responsive */
     max-height: 100%; /* Allow image to fit within the box height */
