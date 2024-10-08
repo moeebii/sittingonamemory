@@ -1,42 +1,46 @@
+/* General body styling */
 body {
     font-family: 'ABC Synt Unlicensed Trial';
-    max-width: 1200px;
+    max-width: 1200px; /* Retain the 1200px max-width */
     margin: 0 auto;
-    padding: 20px;
-    background-color: #fffef8;
+    padding: 20px 0px; /* 20px for top and bottom, 0px for left and right */
+    background-color: #FFFFFF;
 }
 
+/* Header styling */
 .header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto 20px; /* Center the container */
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* Create a 6-column grid */
+    align-items: center; /* Vertically center items */
+    margin: 0 auto 20px; /* Center the container with margin */
+    width: 100%; /* Full width */
 }
 
+/* Styling for individual header items */
 .header-container h1 {
     font-size: 1rem;
     color: #000000;
     margin: 0;
     font-weight: normal; /* Remove the bold effect */
+    display: flex;
+    align-items: center;
 }
 
 .left {
-    text-align: left;
-    flex: 1;
+    grid-column: 1; /* Align to the 1st column */
 }
 
 .center {
-    text-align: center;
-    flex: 1;
+    grid-column: 3 / 5; /* Align the ABOUT link to the 3rd column, spanning to the 5th column */
+    text-align: left; /* Right-align the link */
 }
 
 .right {
-    text-align: right;
-    flex: 1;
+    grid-column: 5; /* Align the DEDICATE A PLAQUE link to the 6th column */
+    text-align: left;
 }
 
-/* Styling the ABOUT link */
+/* Styling the ABOUT and DEDICATE links */
 .about-link, .dedicate-link {
     text-decoration: none; /* No underline */
     color: inherit; /* Inherit the text color (black) */
@@ -45,32 +49,46 @@ body {
 
 /* On hover, change the font to italic */
 .about-link:hover, .dedicate-link:hover {
-    font-style: italic; /* Italics on hover */
+    font-style: italic;
 }
 
-/* Content container styling */
+/* Grid container for content */
 #content-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(6, 200px); /* 6 fixed-width columns */
+    gap: 30px; /* Space between items */
+    justify-content: center; /* Center the grid */
+    margin: 0 auto; /* Center the content container within its parent */
 }
+
+
 
 .post-box {
-    width: 350px; 
-    height: 200px;
+    width: 200px; /* Set a fixed width for consistency */
+    height: 100px; /* Set a fixed height for consistency */
     border: 1px solid #cecece;
     background-color: #FFFFFF;
     display: flex;
     flex-direction: column;
-    justify-content: center; 
-    align-items: center; 
+    justify-content: center;
+    align-items: center;
     padding: 10px;
     position: relative;
+    overflow: hidden; /* Hide overflow for consistent sizing */
+
 }
 
+
+.post-box img {
+    max-width: 100%; /* Ensure the image fits within the box */
+    max-height: 100%; /* Ensure the image doesn't overflow vertically */
+    object-fit: cover; /* Cover the available space but maintain aspect ratio */
+    margin: 3px 0;
+}
+
+
 .post-box p {
-    font-size: 14px;
+    font-size: 10px;
     color: #000000;
     margin: 10px 0; /* Add some margin to separate text from image */
     overflow: auto; /* Allow for scrolling */
@@ -78,8 +96,8 @@ body {
     display: -webkit-box; /* This creates a box for the text */
     -webkit-box-orient: vertical; /* Sets the box to vertical orientation */
     text-align: center; /* Center-align text */
-    padding-left: 30px;
-    padding-right: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
     position: relative; /* Positioning context for scrollbar */
 }
 
