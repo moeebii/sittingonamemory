@@ -1,132 +1,177 @@
-/* General body styling */
-body {
+/* Custom font face definition */
+@font-face {
     font-family: 'ABC Synt Unlicensed Trial';
-    max-width: 1200px; /* Retain the 1200px max-width */
-    margin: 0 auto;
-    padding: 20px 0px; /* 20px for top and bottom, 0px for left and right */
-    background-color: #FFFFFF;
-}
-
-/* Header styling */
-.header-container {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr); /* Create a 6-column grid */
-    align-items: center; /* Vertically center items */
-    margin: 0 auto 20px; /* Center the container with margin */
-    width: 100%; /* Full width */
-}
-
-/* Styling for individual header items */
-.header-container h1 {
-    font-size: 1rem;
-    color: #000000;
-    margin: 0;
-    font-weight: normal; /* Remove the bold effect */
-    display: flex;
-    align-items: center;
-}
-
-.left {
-    grid-column: 1; /* Align to the 1st column */
-}
-
-.center {
-    grid-column: 3 / 5; /* Align the ABOUT link to the 3rd column, spanning to the 5th column */
-    text-align: left; /* Right-align the link */
-}
-
-.right {
-    grid-column: 5; /* Align the DEDICATE A PLAQUE link to the 6th column */
-    text-align: left;
-}
-
-/* Styling the ABOUT and DEDICATE links */
-.about-link, .dedicate-link {
-    text-decoration: none; /* No underline */
-    color: inherit; /* Inherit the text color (black) */
+    src: url('ABCSyntUnlicensedTrial-Regular.woff2') format('woff2'),
+         url('ABCSyntUnlicensedTrial-Regular.woff') format('woff');
     font-weight: normal;
+    font-style: normal;
+    font-display: swap;
 }
 
-/* On hover, change the font to italic */
-.about-link:hover, .dedicate-link:hover {
-    font-style: italic;
-}
+/* General body styling */
+html, body {
+    font-family: 'ABC Synt Unlicensed Trial';
 
-/* Grid container for content */
-#content-container {
-    display: grid;
-    grid-template-columns: repeat(6, 200px); /* 6 fixed-width columns */
-    gap: 30px; /* Space between items */
-    justify-content: center; /* Center the grid */
-    margin: 0 auto; /* Center the content container within its parent */
-}
-
-
-
-.post-box {
-    width: 200px; /* Set a fixed width for consistency */
-    height: 100px; /* Set a fixed height for consistency */
-    border: 1px solid #cecece;
-    background-color: #FFFFFF;
+    height: 100%; /* Ensure full height */
+    margin: 0;
+    padding: 0;
+    background-color: rgba(255, 255, 255, 0.5);
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 10px;
-    position: relative;
-    overflow: hidden; /* Hide overflow for consistent sizing */
-
+    overflow: hidden; /* Disable scrolling on the page */
 }
 
+body {
+    background-size: cover; /* Ensure the image covers the entire viewport */
+    background-position: center center; /* Center the image */
+    background-repeat: no-repeat; /* Prevent tiling of the background */
+    width: 100vw; /* Ensure the body takes up the full viewport width */
+    height: 100vh; /* Ensure the body takes up the full viewport height */
+}
 
+#content-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px; /* Keep padding the same */
+    border: 1px solid #cecece; /* Thinner border */
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 350px;  /* Smaller fixed width */
+    height: 200px; /* Smaller fixed height */
+    overflow: hidden; /* Prevent overflow from the content container */
+}
+
+/* Style for individual posts inside the frame */
+.post-box {
+    width: 100%;
+    height: 100%;  /* Full height of the container */
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Stack content vertically */
+}
+
+/* Styling for images inside the post box */
 .post-box img {
-    max-width: 100%; /* Ensure the image fits within the box */
-    max-height: 100%; /* Ensure the image doesn't overflow vertically */
-    object-fit: cover; /* Cover the available space but maintain aspect ratio */
-    margin: 3px 0;
+    max-width: 100%;
+    max-height: 80%; /* Ensure the image doesn't overflow the box */
+    object-fit: contain;
+    margin: 10px 0;
+    background-color: #fff;
 }
 
-
+/* Styling for the text inside the post box */
 .post-box p {
-    font-size: 10px;
-    color: #000000;
-    margin: 10px 0; /* Add some margin to separate text from image */
-    overflow: auto; /* Allow for scrolling */
-    text-overflow: ellipsis;
-    display: -webkit-box; /* This creates a box for the text */
-    -webkit-box-orient: vertical; /* Sets the box to vertical orientation */
-    text-align: center; /* Center-align text */
-    padding-left: 10px;
-    padding-right: 10px;
-    position: relative; /* Positioning context for scrollbar */
+    font-size: 12px; /* Smaller text size */
+    color: #000;
+    margin: 10px;
+    padding: 0 10px;
+    text-align: center;
+    height: auto; /* Allow height to adjust based on content */
+    flex-grow: 1; /* Allow the text container to grow */
+    overflow-y: auto; /* Enable vertical scrolling if text overflows */
+    max-height: 100%; /* Limit the height to the container's height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Hide scrollbar for WebKit browsers (Chrome, Safari) */
+/* Hide scrollbars for WebKit browsers (Chrome, Safari) */
 .post-box p::-webkit-scrollbar {
     display: none; /* Hides the scrollbar */
 }
 
-/* Hide scrollbar for Firefox */
+/* Hide scrollbars for Firefox */
 .post-box p {
     scrollbar-width: none; /* Hides the scrollbar for Firefox */
 }
 
-.post-box img {
-    max-width: 100%; /* Make the image responsive */
-    max-height: 100%; /* Allow image to fit within the box height */
-    object-fit: contain; /* Preserve aspect ratio while ensuring it fits in box */
-    margin: 10px 0; /* Add margin above and below the image */
-    background-color: #fff; /* Set background to white if image doesn't fill the space */
-}
-
-/* Links in the post */
+/* Links inside post box */
 .post-box a {
     color: #3498db;
     text-decoration: none;
-    position: absolute;
-    bottom: 10px;
 }
 
 .post-box a:hover {
     text-decoration: underline;
+}
+
+#added-by {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    font-size: 12px;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+/* Bottom-left buttons container */
+#bottom-left-buttons {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Individual button styling */
+.button {
+    padding: 3px 8px;
+    font-size: 12px;
+    background-color: #fff;
+    border: 1px solid #cecece;
+    text-align: center;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #cecece;
+    color: #fff;
+    border-color: #cecece;
+}
+
+/* Modal Styling */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Black background with transparency */
+    overflow: auto;
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Adjust width to fit content */
+    max-width: 800px;
+    text-align: left;
+    color: #000; /* Set text color to black */
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
 }
