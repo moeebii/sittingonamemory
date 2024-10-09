@@ -91,20 +91,3 @@ setRandomBackground();
 // Add click event listener to shuffle the background when the user clicks anywhere on the page
 document.body.addEventListener('click', setRandomBackground);
 
-// Grab elements
-const aboutButton = document.getElementById("about-button");
-const aboutModal = document.getElementById("about-modal");
-const closeButton = document.getElementById("close-button");
-
-// Show the modal when the About button is clicked
-aboutButton.addEventListener("click", function(event) {
-    event.preventDefault(); // Prevent default action (e.g., link navigation)
-    document.body.style.display = "none"; // Hide everything else
-    aboutModal.style.display = "block"; // Show the modal
-});
-
-// Close the modal when the close button (X) is clicked
-closeButton.addEventListener("click", function() {
-    aboutModal.style.display = "none"; // Hide the modal
-    document.body.style.display = "block"; // Show everything else
-});
